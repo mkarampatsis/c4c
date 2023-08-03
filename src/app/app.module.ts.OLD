@@ -1,0 +1,28 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http'
+
+import { RouterModule } from '@angular/router';
+import { routes } from './app-routing.module';
+
+import { NavigationComponent } from './components/navigation/navigation.component'
+import { FooterComponent } from './pages/footer/footer.component';
+
+@NgModule({
+  declarations: [
+    // AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    NavigationComponent,
+    FooterComponent
+  ],
+  providers: [],
+  // bootstrap: [AppComponent]
+  bootstrap: []
+})
+export class AppModule { }
