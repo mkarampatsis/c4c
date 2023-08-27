@@ -27,6 +27,8 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/codemirror": "^5.60.8",
     "@uiw/codemirror-theme-dracula": "^4.21.9",
+    "ag-charts-angular": "^8.0.6",
+    "ag-charts-community": "^8.0.6",
     "ag-grid-angular": "^30.0.5",
     "ag-grid-community": "^30.0.5",
     "codemirror": "^6.0.1",

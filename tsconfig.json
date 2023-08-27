@@ -20,6 +20,9 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "paths": {
+      "interfaces": [
+        "dist/interfaces"
+      ],
       "ui": [
         "dist/ui"
       ]
@@ -27,7 +30,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "resolveJsonModule": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

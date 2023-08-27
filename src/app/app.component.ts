@@ -30,7 +30,7 @@ export class AppComponent implements OnDestroy {
         ( event: NavigationEvent ) => {
           if ( event instanceof NavigationStart ) {
 
-            if (event.url === '/home' || event.url === '/trainee/evaluate' ) {
+            if (event.url === '/home' || event.url === '/trainee/evaluate' || event.url === '/' ) {
               this.document.body.classList.remove('flex');
               this.document.body.classList.remove('flex-col');
               this.document.body.classList.remove('min-h-screen');
