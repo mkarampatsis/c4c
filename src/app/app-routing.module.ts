@@ -52,6 +52,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/trainee/evaluate/evaluate.component').then(m => m.EvaluateComponent)
   },
   {
+    path: 'trainee/evaluation',
+    loadComponent: () => import('./pages/trainee/evaluation-form/evaluation-form.component').then(m => m.EvaluationFormComponent)
+  },
+  {
     path: 'instructor/authoring',
     loadComponent: () => import('./pages/instructor/authoring/authoring.component').then(m => m.AuthoringComponent)
   },
