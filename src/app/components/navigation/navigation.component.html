@@ -1,5 +1,6 @@
 <!-- Navigation -->
-<nav class="py-10 bg-custom-gray-800 page-header">
+<nav class="absolute top-0 left-0 z-50 w-full py-10 shadow-custom-shadow">
+<!-- <nav class="py-10 bg-custom-gray-800 page-header"> -->
   <div class="flex flex-wrap justify-between mx-auto max-w-[1820px] px-5 gap-5 items-center">
     <a routerLink="home">
       <img src="assets/logos/code4code.svg" alt="">
@@ -12,17 +13,6 @@
       </li>
       <li class="mb-0">
         <a routerLink="about" class="transition hover:text-custom-green">About</a>
-      </li>
-      <li class="relative mb-0 group">
-        <a href="" class="transition hover:text-custom-green">Admin</a>
-        <ul class="absolute flex-col hidden gap-3 px-8 py-5 mb-0 list-none -translate-x-1/2 rounded-lg group-hover:inline-flex bg-custom-gray-800 top-6 left-1/2 w-max drop-shadow-custom-shadow">
-          <li class="mb-0">
-            <a routerLink="admin/dashboard" class="transition hover:text-custom-green">Dashboard</a>
-          </li>
-          <li class="mb-0">
-            <a routerLink="admin/reports" class="transition hover:text-custom-green">Reports</a>
-          </li>
-        </ul>
       </li>
       <li class="relative mb-0 group">
         <a href="" class="transition hover:text-custom-green">Trainee</a>
@@ -55,6 +45,17 @@
           </li>
           <li class="mb-0">
             <a routerLink="instructor/reports-eo" class="transition hover:text-custom-green">EO reports</a>
+          </li>
+        </ul>
+      </li>
+      <li class="relative mb-0 group">
+        <a href="" class="transition hover:text-custom-green">Admin</a>
+        <ul class="absolute flex-col hidden gap-3 px-8 py-5 mb-0 list-none -translate-x-1/2 rounded-lg group-hover:inline-flex bg-custom-gray-800 top-6 left-1/2 w-max drop-shadow-custom-shadow">
+          <li class="mb-0">
+            <a routerLink="admin/dashboard" class="transition hover:text-custom-green">Dashboard</a>
+          </li>
+          <li class="mb-0">
+            <a routerLink="admin/reports" class="transition hover:text-custom-green">Reports</a>
           </li>
         </ul>
       </li>
@@ -100,17 +101,6 @@
       <li class="mb-0 text-[25px]">
         <a routerLink="/about" class="transition hover:text-custom-green">About</a>
       </li>
-      <li class="relative mb-0 group parent-menu" aria-expanded="false" (click)="toggleSubmenu('admin')" #parentMenu #adminMenu>
-        <a class="cursor-pointer transition hover:text-custom-green text-[25px]">Admin</a>
-        <ul class="flex flex-col gap-2 py-0 mb-0 overflow-hidden list-none transition-all opacity-0 sub-menu max-h-0">
-          <li class="mb-0">
-            <a routerLink="admin/dashboard" class="transition hover:text-custom-green">Dashboard</a>
-          </li>
-          <li class="mb-0">
-            <a routerLink="admin/reports" class="transition hover:text-custom-green">Reports</a>
-          </li>
-        </ul>
-      </li>
       <li class="relative mb-0 group parent-menu" aria-expanded="false" (click)="toggleSubmenu('trainee')" #parentMenu #traineeMenu>
         <a class="cursor-pointer transition hover:text-custom-green text-[25px]">Trainee</a>
         <ul class="flex flex-col gap-2 py-0 mb-0 overflow-hidden list-none transition-all opacity-0 sub-menu max-h-0">
@@ -145,6 +135,17 @@
           </li>
           <li class="mb-0">
             <a routerLink="instructor/reports-eo" class="transition hover:text-custom-green">EO reposts</a>
+          </li>
+        </ul>
+      </li>
+      <li class="relative mb-0 group parent-menu" aria-expanded="false" (click)="toggleSubmenu('admin')" #parentMenu #adminMenu>
+        <a class="cursor-pointer transition hover:text-custom-green text-[25px]">Admin</a>
+        <ul class="flex flex-col gap-2 py-0 mb-0 overflow-hidden list-none transition-all opacity-0 sub-menu max-h-0">
+          <li class="mb-0">
+            <a routerLink="admin/dashboard" class="transition hover:text-custom-green">Dashboard</a>
+          </li>
+          <li class="mb-0">
+            <a routerLink="admin/reports" class="transition hover:text-custom-green">Reports</a>
           </li>
         </ul>
       </li>

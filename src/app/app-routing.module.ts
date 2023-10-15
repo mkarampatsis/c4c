@@ -74,6 +74,14 @@ export const routes: Routes = [
   {
     path: 'instructor/reports-eo',
     loadComponent: () => import('./pages/instructor/reports-eo/reports-eo.component').then(m => m.ReportsEoComponent)
+  },
+  {
+    path: 'learn-js-python-page',
+    loadComponent: () => import('./pages/learn-js-python-page/learn-js-python-page.component').then(m => m.LearnJsPythonPageComponent)
+  },
+  {
+    path: 'authoring-page',
+    loadComponent: () => import('./pages/authoring-page/authoring-page.component').then(m => m.AuthoringPageComponent)
   }
 ];
 
