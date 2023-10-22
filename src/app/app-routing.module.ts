@@ -12,6 +12,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
   },
   {
+    path: 'home/pricing',
+    loadComponent: () => import('./pages/home/pricing/pricing.component').then(m => m.PricingComponent)
+  },
+  {
     path: 'about',
     loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent)
   },
@@ -21,15 +25,31 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./pages/login/login.component').then(m => m.LoginComponent)
+    loadComponent: () => import('./pages/user/login/login.component').then(m => m.LoginComponent)
   },
   {
     path: 'forgot',
-    loadComponent: () => import('./pages/forgot/forgot.component').then(m => m.ForgotComponent)
+    loadComponent: () => import('./pages/user/forgot/forgot.component').then(m => m.ForgotComponent)
   },
   {
     path: 'register',
     loadComponent: () => import('./pages/user/register/register.component').then(m => m.RegisterComponent)
+  },
+  {
+    path: 'legal-notices',
+    loadComponent: () => import('./pages/footer/legal-notices/legal-notices.component').then(m => m.LegalNoticesComponent)
+  },
+  {
+    path: 'privacy-notice',
+    loadComponent: () => import('./pages/footer/privacy-notice/privacy-notice.component').then(m => m.PrivacyNoticeComponent)
+  },
+  {
+    path: 'gdpr',
+    loadComponent: () => import('./pages/footer/gdpr/gdpr.component').then(m => m.GdprComponent)
+  },
+  {
+    path: 'cookies-policy',
+    loadComponent: () => import('./pages/footer/cookies-policy/cookies-policy.component').then(m => m.CookiesPolicyComponent)
   },
   {
     path: 'admin/dashboard',
@@ -40,20 +60,20 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/admin/reports/reports.component').then(m => m.ReportsComponent)
   },
   {
-    path: 'trainee/trainning',
-    loadComponent: () => import('./pages/trainee/trainning/trainning.component').then(m => m.TrainningComponent)
+    path: 'learner/learning-path',
+    loadComponent: () => import('./pages/learner/learning-path/learning-path.component').then(m => m.LearningPathComponent)
   },
   {
-    path: 'trainee/reports',
-    loadComponent: () => import('./pages/trainee/reports/reports.component').then(m => m.ReportsComponent)
+    path: 'learner/reports',
+    loadComponent: () => import('./pages/learner/reports/reports.component').then(m => m.ReportsComponent)
   },
   {
-    path: 'trainee/evaluate',
-    loadComponent: () => import('./pages/trainee/evaluate/evaluate.component').then(m => m.EvaluateComponent)
+    path: 'learner/evaluate',
+    loadComponent: () => import('./pages/learner/evaluate/evaluate.component').then(m => m.EvaluateComponent)
   },
   {
-    path: 'trainee/evaluation',
-    loadComponent: () => import('./pages/trainee/evaluation-form/evaluation-form.component').then(m => m.EvaluationFormComponent)
+    path: 'learner/evaluation',
+    loadComponent: () => import('./pages/learner/evaluation-form/evaluation-form.component').then(m => m.EvaluationFormComponent)
   },
   {
     path: 'instructor/authoring',
@@ -64,16 +84,16 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/instructor/register/register.component').then(m => m.RegisterComponent)
   },
   {
-    path: 'instructor/reports',
-    loadComponent: () => import('./pages/instructor/reports/reports.component').then(m => m.ReportsComponent)
+    path: 'instructor/reports-evaluations',
+    loadComponent: () => import('./pages/instructor/reports-evaluations/reports-evaluations.component').then(m => m.ReportsEvaluationsComponent)
   },
   {
     path: 'instructor/evaluate-eo',
-    loadComponent: () => import('./pages/instructor/evaluate-eo/evaluate-eo.component').then(m => m.EvaluateEoComponent)
+    loadComponent: () => import('./pages/instructor/reports-evaluations/evaluate-eo/evaluate-eo.component').then(m => m.EvaluateEoComponent)
   },
   {
     path: 'instructor/reports-eo',
-    loadComponent: () => import('./pages/instructor/reports-eo/reports-eo.component').then(m => m.ReportsEoComponent)
+    loadComponent: () => import('./pages/instructor/reports-evaluations/reports-eo/reports-eo.component').then(m => m.ReportsEoComponent)
   },
   {
     path: 'learn-js-python-page',
