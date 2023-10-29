@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "email":"admin@gmail.com",
+    "firstname":"firstname_admin",
+    "lastname":"surname_admin",
+    "password":"1234",
+    "role":{
+      "type":"admin"
+    }
+  },
+  {
+    "id": 2,
+    "email":"user1@gmail.com",
+    "firstname":"firstname_user1",
+    "lastname":"surname1_user1",
+    "password":"1234",
+    "role":{
+      "type":"learner"
+    }
+  },
+  {
+    "id": 3,
+    "email":"user2@gmail.com",
+    "firstname":"firstname_user2",
+    "lastname":"surname1_user2",
+    "password":"1234",
+    "role":{
+      "type":"learner"
+    }
+  },
+  {
+    "id": 4,
+    "email":"user3@gmail.com",
+    "firstname":"firstname_user3",
+    "lastname":"surname1_user3",
+    "password":"1234",
+    "role":{
+      "type":"instructor"
+    }
+  }
+]
