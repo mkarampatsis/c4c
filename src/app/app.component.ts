@@ -39,7 +39,7 @@ export class AppComponent implements OnDestroy {
           if ( event instanceof NavigationStart ) {
             this.appService.setURI(event.url);
             this.uri = event.url;
-            console.log("1>>>",!this.notShowNavigation.includes(this.uri), this.uri)
+            // console.log("1>>>",!this.notShowNavigation.includes(this.uri), this.uri)
             if (this.notShowNavigation.includes(this.uri)) {
               // this.document.body.classList.remove('flex');
               // this.document.body.classList.remove('flex-col');

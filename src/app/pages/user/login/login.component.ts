@@ -24,11 +24,14 @@ export class LoginComponent {
     })
   }
 
-  async logindata(login:FormGroup){
-    // console.log(this.login.value);
-    let result = await this.userservice.login(login);
+  logindata(){
+    console.log(this.login.value);
+    let result = this.userservice.login(this.login.value);
     
-    console.log(">>",result);
+    console.log("3>>",result);
+    result.subscribe(res =>{
+      console.log("4>>",res);
+    })
     // if (result) {
 
     // } 

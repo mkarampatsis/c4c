@@ -11,7 +11,6 @@ export class BackendService {
   ) { }
 
   getProfile(){
-    console.log("Get Organizations");
     return this.http
       .get<any>('http://localhost:3000/profile')
   }

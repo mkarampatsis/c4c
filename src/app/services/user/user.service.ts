@@ -1,27 +1,33 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormGroup } from '@angular/forms';
 import { BackendService } from 'src/app/backend.service';
+import { BehaviorSubject, Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
+  private loginCheck = new BehaviorSubject<string>('');
+  private loginCheck$ = this.loginCheck.asObservable();
+
   constructor(
-    private _http: HttpClient,
     private backendService: BackendService
   ) { }
 
-  login(data: FormGroup<any>){
-    this.backendService.getProfile()
+  login(data: any): Observable<string> {
+
+    let result = this.backendService.getProfile()
     .subscribe( res => {
-      console.info(res)
+      console.log("1>>>", res, data)
       
-      const user = res.find((a:any)=>{
-        return a.fname === data.value.email && a.password === data.value.password
+      res.find((a:any)=>{
+        this.loginCheck$ = data.email && a.password === data.password;
+        // return a.fname === data.email && a.password === data.password
       });
     })
+
+    console.log("2>>>", this.loginCheck$);
+    return this.loginCheck$
       // .subscribe(res=>{
       //   const user = res.find((a:any)=>{
       //     return a.fname === data.value.email && a.password === data.value.password
