@@ -7,7 +7,7 @@
         </div>
           
           
-        <form [formGroup]="login" (ngSubmit)="logindata()">
+        <form [formGroup]="fmrLogin" (ngSubmit)="login()">
           <div class="form-group">
             <label for="email">Email</label>
             <input type="email" formControlName="email" id="email" class="block peer" placeholder="Enter Email"/>

@@ -14,28 +14,23 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  login:FormGroup|any;
+  fmrLogin:FormGroup|any;
   // private profile$!: Observable<any>;
 
   constructor(private userservice: UserService) { }
 
   ngOnInit(): void {
-    this.login = new FormGroup({
+    this.fmrLogin = new FormGroup({
       'email': new FormControl(),
       'password': new FormControl()
     })
   }
 
-  logindata(){
-    let profile$ = this.userservice.login(this.login.value);
+  login(){
+    let profile$ = this.userservice.login(this.fmrLogin.value);
     
     console.log("3>>",profile$);
-    // result.subscribe((res: any) =>{
-    //   console.log("4>>",res);
-    // })
-    // if (result) {
-
-    // } 
+    
     //  this.http.get<any>("http://localhost:3000/profile")
     //   .subscribe({
     //     next: (res) => {
