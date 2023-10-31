@@ -23,6 +23,9 @@
       "interfaces": [
         "dist/interfaces"
       ],
+      "models": [
+        "dist/models"
+      ],
       "ui": [
         "dist/ui"
       ]
