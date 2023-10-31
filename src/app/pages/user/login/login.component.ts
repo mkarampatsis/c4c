@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { Observable } from "rxjs";
+import { RouterModule, Router } from '@angular/router';
 
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -14,10 +13,13 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  fmrLogin:FormGroup|any;
-  // private profile$!: Observable<any>;
-
-  constructor(private userservice: UserService) { }
+  fmrLogin:FormGroup | any;
+  loading = false;
+  
+  constructor(
+    private userservice: UserService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.fmrLogin = new FormGroup({
@@ -27,28 +29,17 @@ export class LoginComponent {
   }
 
   login(){
-    let profile$ = this.userservice.login(this.fmrLogin.value);
-    
-    console.log("3>>",profile$);
-    
-    //  this.http.get<any>("http://localhost:3000/profile")
-    //   .subscribe({
-    //     next: (res) => {
-    //       const user = res.find((a:any)=>{
-    //         return a.fname === this.login.value.fname && a.password === this.login.value.password
-    //       });
+    this.loading = true;
 
-    //       if(user){
-    //         alert('you are successfully login');
-         
-    //        //  this._route.navigate(['dashboard']);
-    //       }else{
-    //         alert('User Not Found');
-    //        //  this._route.navigate(['login']);
-    //       }
-    //     },
-    //     error: (e) => console.error(e),
-    //     complete: () => console.info('complete') 
-    //   })
-    }
+    this.userservice.login(this.fmrLogin.value)
+      .subscribe({
+        next: (result) => {
+            if (result)
+              this.router.navigateByUrl('/learn-js-python-page');
+        },
+        error: error => {
+            this.loading = false;
+        }
+    })
+  }
 }

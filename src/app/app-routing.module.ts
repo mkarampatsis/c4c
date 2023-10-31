@@ -20,35 +20,43 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/about/about.component').then(m => m.AboutComponent)
   },
   {
-    path: 'account',
+    path: 'user/account',
     loadComponent: () => import('./pages/user/account/account.component').then(m => m.AccountComponent)
   },
   {
-    path: 'login',
+    path: 'user/login',
     loadComponent: () => import('./pages/user/login/login.component').then(m => m.LoginComponent)
   },
   {
-    path: 'forgot',
+    path: 'user/forgot',
     loadComponent: () => import('./pages/user/forgot/forgot.component').then(m => m.ForgotComponent)
   },
   {
-    path: 'register',
+    path: 'user/register',
     loadComponent: () => import('./pages/user/register/register.component').then(m => m.RegisterComponent)
   },
   {
-    path: 'legal-notices',
+    path: 'user/welcome',
+    loadComponent: () => import('./pages/user/welcome/welcome.component').then(m => m.WelcomeComponent)
+  },
+  {
+    path: 'user/user-evaluation',
+    loadComponent: () => import('./pages/user/user-evaluation/user-evaluation.component').then(m => m.UserEvaluationComponent)
+  },
+  {
+    path: 'footer/legal-notices',
     loadComponent: () => import('./pages/footer/legal-notices/legal-notices.component').then(m => m.LegalNoticesComponent)
   },
   {
-    path: 'privacy-notice',
+    path: 'footer/privacy-notice',
     loadComponent: () => import('./pages/footer/privacy-notice/privacy-notice.component').then(m => m.PrivacyNoticeComponent)
   },
   {
-    path: 'gdpr',
+    path: 'footer/gdpr',
     loadComponent: () => import('./pages/footer/gdpr/gdpr.component').then(m => m.GdprComponent)
   },
   {
-    path: 'cookies-policy',
+    path: 'footer/cookies-policy',
     loadComponent: () => import('./pages/footer/cookies-policy/cookies-policy.component').then(m => m.CookiesPolicyComponent)
   },
   {

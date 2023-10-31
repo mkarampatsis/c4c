@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 
 import { Profile } from 'projects/interfaces/src/lib/profile';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +18,10 @@ export class BackendService {
   ) { }
 
   getProfile(): Observable<Profile[]> {
-    return this.http.get<any>('http://localhost:3000/profile')
+    return this.http.get<Profile[]>('http://localhost:3000/profile', httpOptions)
+  }
+
+  setProfile(data: Profile): Observable<Profile>{
+    return this.http.post<Profile>("http://localhost:3000/profile", JSON.stringify(data), {'headers':{ 'Content-Type': 'application/json' }})
   }
 }

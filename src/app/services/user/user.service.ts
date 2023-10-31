@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, numberAttribute } from '@angular/core';
 import { BackendService } from 'src/app/backend.service';
-import { Observable } from "rxjs";
+import { Observable, map, filter } from "rxjs";
 
 import { Profile } from 'projects/interfaces/src/lib/profile';
 
@@ -15,19 +15,20 @@ export class UserService {
     private backendService: BackendService
   ) { }
 
-  async login(data: any) {
+  login(data: any) {
 
-    await this.backendService.getProfile()
-      .subscribe( response  => {
-        console.log("1>>>", response, data)
-        
-        const user = response.find((a:any) => {
-          console.log(a);
-          return a.email === data.email && a.password === data.password;
+    return this.backendService.getProfile()
+      .pipe(map((user) => {
+        let result = user.find((item:any) => {
+          return item.email === data.email && item.password === data.password;
         });
-     
-        console.log("21>>", user);
-        return user;
-      })
+        return result
+      }))
+  }
+
+  register(data: Profile) {
+    return this.backendService.setProfile(data)
   }
 }
+
+
