@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Profile } from 'projects/interfaces/src/lib/profile';
+import { UserEvaluation } from 'projects/interfaces/src/lib/user-evaluation';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -23,5 +24,9 @@ export class BackendService {
 
   setProfile(data: Profile): Observable<Profile>{
     return this.http.post<Profile>("http://localhost:3000/profile", JSON.stringify(data), {'headers':{ 'Content-Type': 'application/json' }})
+  }
+
+  getUserEvaluation(): Observable<UserEvaluation[]> {
+    return this.http.get<UserEvaluation[]>('http://localhost:3000/user_evaluation', httpOptions)
   }
 }

@@ -29,6 +29,17 @@ export class UserService {
   register(data: Profile) {
     return this.backendService.setProfile(data)
   }
+
+  getUserEvaluation(language:string){
+    return this.backendService.getUserEvaluation()
+    .pipe(
+      map((exercises) => {
+        let result = exercises.filter((item:any) => {
+          return item.type === language;
+        });
+        return result
+      }))
+  }
 }
 
 
