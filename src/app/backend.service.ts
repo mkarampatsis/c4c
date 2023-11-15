@@ -29,4 +29,8 @@ export class BackendService {
   getUserEvaluation(): Observable<UserEvaluation[]> {
     return this.http.get<UserEvaluation[]>('http://localhost:3000/user_evaluation', httpOptions)
   }
+
+  setUserEvaluation(data: object) {
+    return this.http.patch<Profile>("http://localhost:3000/profile/", JSON.stringify(data), {'headers':{ 'Content-Type': 'application/json' }})
+  } 
 }

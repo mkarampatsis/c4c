@@ -40,6 +40,10 @@ export class UserService {
         return result
       }))
   }
+
+  setUserEvaluation(data:object){
+    return this.backendService.setUserEvaluation(data)
+  }
 }
 
 
