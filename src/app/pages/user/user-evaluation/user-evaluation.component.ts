@@ -73,7 +73,6 @@ export class UserEvaluationComponent {
         }
         i++;
       });
-      // console.log(this.frmEvaluation.value);
     }
   }
 
