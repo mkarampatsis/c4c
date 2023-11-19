@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserService } from 'src/app/services/user/user.service';
 import { UserEvaluation } from 'projects/interfaces/src/lib/user-evaluation';
@@ -19,10 +20,13 @@ export class UserEvaluationComponent {
 
   exercises: Array<UserEvaluation> | undefined;
   
-  xx = "1";
-
+  profile$ = this.userservice.ProfileSignal$()
+  language: string | undefined;
+  
   constructor(
-    private userservice: UserService
+    private userservice: UserService,
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -41,7 +45,14 @@ export class UserEvaluationComponent {
       'exercise8': new FormArray([]),
       'exercise9': new FormArray([]),
       'exercise10': new FormArray([]),
-    })
+    });
+
+    console.log("1>>", this.profile$);
+    this.language = this.route.snapshot.params['language'];
+    if (this.language) {
+      this.frmLanguage.value.language = this.language;
+      this.showQuestions();
+    }
   }
 
   showQuestions(){
@@ -59,7 +70,7 @@ export class UserEvaluationComponent {
   }
 
   onCheckboxChange(e: any, exercise: string) {
-    
+    console.log(">>>>",exercise, e.target.value)
     let checkArray: FormArray = this.frmEvaluation.get(exercise) as FormArray;
     
     if (e.target.checked) {
@@ -91,5 +102,6 @@ export class UserEvaluationComponent {
       'exercise10': this.frmEvaluation.value.exercise10.length>0 ? this.frmEvaluation.value.exercise10.every(boolValue): false,
     }
     // console.log(result);
+    this.router.navigate(['learner/learning-path', this.language]);
   }
 }

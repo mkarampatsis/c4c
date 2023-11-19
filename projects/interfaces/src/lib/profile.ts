@@ -1,10 +1,18 @@
 export interface Profile {
-  id: number
+  id: string
   email: string
   firstname: string
   lastname: string
   password: string
-  role: { 
-    type: string
-  }
+  role: Role
+  language: Language[]
+}
+
+export interface Role {
+  type: string
+}
+
+export interface Language {
+  language: string
+  evaluation: boolean
 }

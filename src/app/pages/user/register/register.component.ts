@@ -40,8 +40,7 @@ export class RegisterComponent {
     this.userservice.register(this.fmrRegister.value)
       .subscribe({
         next: () => {
-          console.log("Welcome User");
-          this.router.navigateByUrl('/user/welcome');
+          this.router.navigateByUrl('learn-js-python-page');
         },
         error: error => {
           console.log(error);

@@ -8,6 +8,7 @@ import { language } from "@codemirror/language";
 import { javascript } from "@codemirror/lang-javascript";
 import { python } from "@codemirror/lang-python"
 import { dracula, draculaInit  } from '@uiw/codemirror-theme-dracula';
+import { ActivatedRoute } from '@angular/router'
 
 import { HintComponent } from 'projects/ui/src/lib/hint/hint.component';
 import { TheoryComponent } from 'projects/ui/src/lib/theory/theory.component';
@@ -21,10 +22,16 @@ import { TheoryComponent } from 'projects/ui/src/lib/theory/theory.component';
 })
 export class LearningPathComponent implements AfterViewInit {
   @ViewChild('codeEditor') codeEditor!: ElementRef;
+  language: string | undefined;
 
   constructor(
-    @Inject(DOCUMENT) private document: any
+    @Inject(DOCUMENT) private document: any,
+    private route: ActivatedRoute
   ) {}
+
+  ngOnInit() {
+    this.language = this.route.snapshot.params['language'];
+  }
 
   ngAfterViewInit() {
     let myEditorElement = this.codeEditor.nativeElement;

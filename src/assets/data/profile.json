@@ -17,7 +17,13 @@
     "password":"1234",
     "role":{
       "type":"learner"
-    }
+    },
+    "language": [
+      {
+        "language": "javascript",
+        "evaluation": true 
+      }
+    ]
   },
   {
     "id": "3",
@@ -27,7 +33,13 @@
     "password":"1234",
     "role":{
       "type":"learner"
-    }
+    },
+    "language": [
+      {
+        "language": "javascript",
+        "evaluation": true 
+      }
+    ]
   },
   {
     "id": "4",
@@ -37,6 +49,12 @@
     "password":"1234",
     "role":{
       "type":"instructor"
-    }
+    },
+    "language": [
+      {
+        "language": "python",
+        "evaluation": true 
+      }
+    ]
   }
 ]

@@ -15,6 +15,8 @@ import { UserService } from 'src/app/services/user/user.service';
 export class LoginComponent {
   fmrLogin:FormGroup | any;
   loading = false;
+
+  errorTxt: string | undefined
   
   constructor(
     private userservice: UserService,
@@ -36,10 +38,12 @@ export class LoginComponent {
         next: (result) => {
             if (result)
               this.router.navigateByUrl('/learn-js-python-page');
+            else 
+              this.errorTxt = "Username or Password failed";
         },
         error: error => {
             this.loading = false;
         }
-    })
+    });
   }
 }

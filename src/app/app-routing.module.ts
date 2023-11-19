@@ -40,7 +40,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/user/welcome/welcome.component').then(m => m.WelcomeComponent)
   },
   {
-    path: 'user/user-evaluation',
+    path: 'user/user-evaluation/:language',
     loadComponent: () => import('./pages/user/user-evaluation/user-evaluation.component').then(m => m.UserEvaluationComponent)
   },
   {
@@ -68,7 +68,7 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/admin/reports/reports.component').then(m => m.ReportsComponent)
   },
   {
-    path: 'learner/learning-path',
+    path: 'learner/learning-path/:language',
     loadComponent: () => import('./pages/learner/learning-path/learning-path.component').then(m => m.LearningPathComponent)
   },
   {

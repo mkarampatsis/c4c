@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Profile } from 'projects/interfaces/src/lib/profile';
+import { Exercise } from 'projects/interfaces/src/lib/exercises';
 import { UserEvaluation } from 'projects/interfaces/src/lib/user-evaluation';
 
 const httpOptions = {
@@ -33,4 +34,8 @@ export class BackendService {
   setUserEvaluation(data: object) {
     return this.http.patch<Profile>("http://localhost:3000/profile/", JSON.stringify(data), {'headers':{ 'Content-Type': 'application/json' }})
   } 
+
+  getLearningPath(): Observable<Exercise[]> {
+    return this.http.get<Exercise[]>('http://localhost:3000/exercises', httpOptions)
+  }
 }

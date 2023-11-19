@@ -1,7 +1,7 @@
 <main class="container flex flex-1 my-36">
   <div class="max-w-[800px] mx-auto self-center w-full">
     <div class="mb-24 text-center">
-      <h2 class="mb-5">Evaluate your coding experience</h2>
+      <h2 class="mb-5">Evaluate your coding experience, {{profile$}}</h2>
     </div>
   
     <form [formGroup]="frmLanguage">
@@ -9,8 +9,8 @@
         <label for="language">Select language</label>
         <select formControlName="language" id="language" (change)="showQuestions()">
           <option value="" selected disabled>Choose language</option>
-          <option value="javascript">Javascript</option>
-          <option value="python">Python</option>
+          <option value="javascript" [selected]="language==='javascript'">Javascript</option>
+          <option value="python" [selected]="language==='python'">Python</option>
         </select>
       </div>
     </form>
@@ -24,7 +24,7 @@
         <div class="checkbox-group">
           <div class="checkbox-container" *ngFor="let answer of exercise.answers; index as i;">
             <input type="checkbox" id="exercise{{exercise.id}}{{i}}"  [value]="answer.correct" (change)="onCheckboxChange($event, 'exercise'+exercise.id)">
-            <label for="exercise{{exercise.id}}{{i}}">{{answer.text}}</label>
+            <label for="exercise{{exercise.id}}{{i}}">{{answer.text}}, 'exercise'+{{exercise.id}} </label>
           </div>
         </div>
       </div>
