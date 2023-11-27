@@ -22,6 +22,7 @@ export class UserEvaluationComponent {
   
   profile$ = this.userservice.ProfileSignal$()
   language: string | undefined;
+  level: string | undefined
   
   constructor(
     private userservice: UserService,
@@ -31,7 +32,8 @@ export class UserEvaluationComponent {
 
   ngOnInit(): void {
     this.frmLanguage = new FormGroup({
-      'language': new FormControl('')
+      'language': new FormControl(''),
+      'level': new FormControl('')
     });
 
     this.frmEvaluation = new FormGroup({
@@ -49,15 +51,21 @@ export class UserEvaluationComponent {
 
     console.log("1>>", this.profile$);
     this.language = this.route.snapshot.params['language'];
+    this.level = "beginner"
+
+    console.log("222>>>",this.language, this.level);
+
     if (this.language) {
       this.frmLanguage.value.language = this.language;
+      this.frmLanguage.value.level = "beginner";
       this.showQuestions();
     }
   }
 
   showQuestions(){
+    
     let language = this.frmLanguage.value.language
-   
+
     this.userservice.getUserEvaluation(language)
     .subscribe({
       next: (data) => {
@@ -69,9 +77,8 @@ export class UserEvaluationComponent {
     }) 
   }
 
-  onCheckboxChange(e: any, exercise: string) {
-    console.log(">>>>",exercise, e.target.value)
-    let checkArray: FormArray = this.frmEvaluation.get(exercise) as FormArray;
+  onCheckboxChange(e: any, exercise: number) {
+    let checkArray: FormArray = this.frmEvaluation.get("exercise"+exercise.toString()) as FormArray;
     
     if (e.target.checked) {
       checkArray.push(new FormControl(e.target.value));
@@ -85,6 +92,7 @@ export class UserEvaluationComponent {
         i++;
       });
     }
+    console.log(this.frmEvaluation.value)
   }
 
   saveAnswers(){
@@ -101,7 +109,13 @@ export class UserEvaluationComponent {
       'exercise9': this.frmEvaluation.value.exercise9.length>0 ? this.frmEvaluation.value.exercise9.every(boolValue): false,
       'exercise10': this.frmEvaluation.value.exercise10.length>0 ? this.frmEvaluation.value.exercise10.every(boolValue): false,
     }
-    // console.log(result);
+    console.log(result);
     this.router.navigate(['learner/learning-path', this.language]);
+  }
+
+  resetForm(){
+    console.log("reset");
+    this.frmEvaluation.reset();
+    this.exercises = [];
   }
 }

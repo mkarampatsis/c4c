@@ -21,16 +21,21 @@ export class LearnJsPythonPageComponent {
   ) { }
 
   check_language(language: string) {
-    console.log(this.profile$);
+    console.log("learnjs", language, this.profile$);
     if (this.profile$?.language) {
       let result = this.profile$?.language.find((item:any)=> {
         return item.language === language
       })
-      if (result && result.evaluation)
+      if (result && result.evaluation){
+        console.log("learnjs1>>", language);
         this.router.navigate(['learner/learning-path', language]);
-      else
+      } else {
+        console.log("learnjs2>>", language);
         this.router.navigate(['user/user-evaluation', language]);
-    } else
+      }  
+    } else { 
+      console.log("learnjs3>>", language);
       this.router.navigate(['user/user-evaluation', language]);
+    }
   }
 }

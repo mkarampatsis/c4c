@@ -21,7 +21,8 @@
     "language": [
       {
         "language": "javascript",
-        "evaluation": true 
+        "evaluation": true,
+        "level": "beginner" 
       }
     ]
   },
@@ -37,7 +38,8 @@
     "language": [
       {
         "language": "javascript",
-        "evaluation": true 
+        "evaluation": true,
+        "level": "beginner" 
       }
     ]
   },
@@ -53,7 +55,8 @@
     "language": [
       {
         "language": "python",
-        "evaluation": true 
+        "evaluation": true,
+        "level": "advanced beginner" 
       }
     ]
   }
